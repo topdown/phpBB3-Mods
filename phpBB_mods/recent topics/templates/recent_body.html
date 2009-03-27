@@ -1,0 +1,29 @@
+<div class="forabg">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<ul class="topiclist">
+			<li class="header">
+				<dl class="icon">
+					<dt style="padding: 2px 0px 0px 10px;"><span>Recent Topics</span></dt>
+					<dd class="topics">Topic Views</dd>
+					<dd class="posts"><span>Replies</span></dd>
+					<dd class="lastpost" style="text-align: center;"><span>Topic Author - Last Post By - Time</span></dd>
+				</dl>
+			</li>
+		</ul>
+		<ul class="topiclist forums">
+			<!-- BEGIN recent_data -->
+				<li class="row">
+					<dl>
+						<dt style="padding: 5px 0px 0px 10px;">
+							<a href="{recent_data.U_RECENT_TOPIC}" style="display: block; padding: 5px 0px; min-width: 140px; font-weight: bold;" title=" {recent_data.TOPIC_TITLE}" ><span>{recent_data.TOPIC_TITLE}</span></a> 	
+						</dt>
+						<dd class="topics">{recent_data.TOPIC_VIEWS}</dd>
+						<dd class="posts">{recent_data.TOTAL_POSTS}</dd>
+						<dd class="lastpost" style="text-align: center;">{recent_data.TOPIC_AUTHOR_FULL} <!-- IF recent_data.S_NEW_POSTER -->&bull; {recent_data.REPLY_AUTHOR_FULL}<!-- ENDIF --><br /> {recent_data.TOPIC_TIME}</dd>
+					</dl>
+				</li>
+			<!-- END recent_data -->
+		</ul>
+		<div style=" margin: 0px; color: #fff;">Recent Topics Mod Developed By:  topdown ~ Webmasters United</div>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
