@@ -2,7 +2,7 @@
 /**
 *
 * @rss_feed.php 
-* Revision: $Id: rss.php 5048 2009-03-17 09:23:12Z phpbbxpert $
+* @version: $Id: rss.php 5048 2009-03-17 09:23:12Z phpbbxpert $
 * @package - RSS output
 * @copyright (c) 2008 topdown, Webmasters United.org
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
