@@ -2,7 +2,7 @@
 /**
 *
 * @cms.php (CMS controler)
-* @version $Id: cms.php beta 0.0.5 2009-03-17 09:23:12Z phpbbxpert $
+* @version cms.php beta 0.0.5 $Id$
 * @package - Simple BB CMS
 * @copyright (c) 2009 topdown, Webmasters United.org
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
