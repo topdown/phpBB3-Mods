@@ -36,6 +36,7 @@ include_once($phpbb_root_path . 'includes/classes/cms_class.' . $phpEx);
  * @param object $cms_title			Give your page a title 'Home Page'
  */
 $page = request_var('page', '');
+//We can use a switch here to have multiple pages with different content and one controller file.
 switch ($page)
 {
     case 'articles':
@@ -57,13 +58,12 @@ page_header($page);
 
 $template->set_filenames(array(
     'body' => 'index_body.html')
-); 
+);
+// Set the links in the breadcrumbs
 $template->assign_block_vars('navlinks', array(
 	'FORUM_NAME'   =>  $page,
 	'U_VIEW_FORUM'   => append_sid($phpbb_root_path .  'site.' . $phpEx, 'page=' . $page)
 ));
-
-
 
 $template->set_filenames(array(
 	'body' => 'site/index_body.html')
