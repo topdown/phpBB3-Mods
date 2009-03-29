@@ -2,7 +2,7 @@
 /**
 *
 * @rss.php
-* @version 0.0.1 Beta
+* @version 0.0.2 Beta
 * @package phpBB RSS
 * @copyright (c) 2009 topdown, Webmasters United.org
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
@@ -57,10 +57,14 @@ class rss
 	}
 	
 	/**
-	 * Lets build the RSS Feed
-	 * @return
+	 * 
+	 * @return 
+	 * @param object $forum_array
+	 * @param object $forum_array_type
+	 * @param object $order_by
+	 * @param object $limit
 	 */
-	function get_rss($forum_array, $forum_array_type, $order, $limit)
+	function get_rss($forum_array, $forum_array_type, $order_by, $limit)
 	{
 		/**
          * Set the needed globals
@@ -72,7 +76,7 @@ class rss
 		$board_url = generate_board_url();
 	
 		$rss_value = '<?xml version="1.0" encoding="UTF-8"?>'."\r\n";
-		$rss_value .= '<rss version="2.0">' . "\r\n";
+		$rss_value .= '<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">' . "\r\n";
 		
 		// Build the channel tag
 		$rss_value .= "\t<channel>\r\n";
@@ -81,7 +85,7 @@ class rss
 		$rss_value .= "\t\t<description>" . $this->channel_desc . "</description>\r\n";
 		$rss_value .= "\t\t<language>en-us</language>\r\n";
 		$rss_value .= "\t\t" . '<lastBuildDate>' . $this->format_date($build_date) . '</lastBuildDate>' ."\r\n";
-
+		$rss_value .= "\t\t" . '<copyright>This RSS script was developed by topdown - Webmasters United.org 2009</copyright>' . "\r\n";
 		
 		// Build the image tag
 		$rss_value .= "\t\t<image>\r\n";
@@ -106,7 +110,7 @@ class rss
 			'WHERE'			=> 'p.post_id = t.topic_first_post_id
 				AND ' . $db->sql_in_set('t.forum_id', $forum_array, $db->sql_escape($forum_array_type)) . '
 				AND u.user_id   =  p.poster_id',
-			'ORDER_BY'		=> 'topic_time ' . $db->sql_escape($order),
+			'ORDER_BY'		=>  $db->sql_escape($order_by) . ' DESC',
 		);
 		
 		$sql = $db->sql_build_query('SELECT', $sql_ary);
@@ -131,9 +135,10 @@ class rss
 			if($auth->acl_get('f_read',$row['forum_id']))
 	        {
 				$rss_value .= "\t\t\t" . '<item>' ."\r\n";
-				$rss_value .= "\t\t\t\t" . '<author>' . $row['username'] . '</author>'. "\r\n";
+				$rss_value .= "\t\t\t\t<dc:creator>" . $row['username'] . "</dc:creator>\r\n";
 				$rss_value .= "\t\t\t\t" . '<pubDate>' . $this->format_date($row['post_time']) . '</pubDate>' ."\r\n";
 				$rss_value .= "\t\t\t\t" . '<title>' . $row['topic_title'] . '</title>' . "\r\n";
+				$rss_value .= "\t\t\t\t" . '<guid>' . $board_url . '/viewtopic.' . $phpEx . '?f=' . $f_id . '&amp;t=' . $t_id . '</guid>' . "\r\n";
 				$rss_value .= "\t\t\t\t" . '<link>' . $board_url . '/viewtopic.' . $phpEx . '?f=' . $f_id . '&amp;t=' . $t_id . '</link>' . "\r\n";
 				$rss_value .= "\t\t\t\t<description>" . $message . '&lt;br /&gt;&lt;br /&gt;Posted by: &lt;b&gt;'  . $row['username'] . '&lt;/b&gt;,  Replies: ' . $row['topic_replies'] . ', Views: ' . $row['topic_views'] .  "&lt;hr /&gt;</description>\r\n";
 				$rss_value .= "\t\t\t</item>\r\n";
@@ -141,7 +146,6 @@ class rss
 		}
 		
 		$db->sql_freeresult($result);
-				
 		// Add the closing rss tags and return
 		$rss_value .= "\t</channel>\r\n </rss>\r\n";
 		return $rss_value; 
@@ -154,7 +158,8 @@ class rss
 				ob_start('ob_gzhandler');
 			}
 		}
-		// Close the database and phpBB connections
+		// Close the database, phpBB connections and set the header
+		header('Content-Type: text/xml; charset=UTF-8');
 		garbage_collection();
 		exit_handler();
 	}
@@ -166,21 +171,18 @@ class rss
 	 */
 	function clean_message ($message)
 	{
+		//Set the full URL for site paths
+		$board_url = generate_board_url(true);
 		//Search and destroy :P
-		//$search 	= array('&nbsp;', '<', '>', '&lt;span style="font-weight: bold"&gt;', '&lt;/span&gt;');
-		//$replace 	= array(' ', '&lt;', '&gt;', '&lt;b&gt;', '&lt;/b&gt;');
-		
 		//Strip all HTML tags except the allowed tags in the list	
 		$message 	= strip_tags($message, '<ul><li><dt><dd><dl><code><blockquote><span><br><img><p><a>');
 		//Convert special characters to HTML entities (I think this maybe a better way then str_replace)
 		$message = htmlspecialchars($message, ENT_QUOTES);
 		
-		//Clean it up
-		//$message 	= str_replace($search, $replace, $message);
-		
 		// Special, remove the Select All link from the code blocks (Lets get rid of that broken java link)
 		$message 	= str_replace('&lt;a href=&quot;#&quot; onclick=&quot;selectCode(this); return false;&quot;&gt;Select all&lt;/a&gt;', '&lt;br /&gt;', $message);
-		
+		//Lets add the full URL to the smilies and other images so the RSS validates
+		$message  	= str_replace('&lt;img src=&quot;./', '&lt;img src=&quot;'. $board_url . '/', $message);
 		return $message;
 	}
 }
