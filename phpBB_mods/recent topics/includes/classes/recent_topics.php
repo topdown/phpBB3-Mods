@@ -24,7 +24,7 @@ class recent_topics
 	/**
 	 * Get the recently posted topics ordered by last post time 
 	 * (if a reply ocoured, it jumps to the top of the list)
-	 * 
+	 * Just a little test
 	 * @return 
 	 * @param object $t_limit limit the number of topics
 	 * @param object $sql_in array to exclude forum ids from the query
