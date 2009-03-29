@@ -1,10 +1,10 @@
 <?php
 /**
 *
-* @package phpBB3 recent_topics Class
-*  $Id$
-* $Author$
-* @copyright (c) 2008 topdown, Webmasters United.org
+* @package phpBB3 Recent Topics Class
+* @version $Id$
+* @author topdown
+* @copyright (c) 2009 topdown, Webmasters United.org
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */

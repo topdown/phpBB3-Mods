@@ -1,10 +1,9 @@
 <?php
 /**
 *
-* @cms.php (CMS controler)
-*  $Id$
-*  $Author$
-* @package - Simple_content
+* @package Simple_content (CMS controler)
+* @version $Id$
+* @author topdown
 * @copyright (c) 2009 topdown, Webmasters United.org
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *

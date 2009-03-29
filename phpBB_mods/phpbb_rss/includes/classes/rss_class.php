@@ -1,10 +1,9 @@
 <?php
 /**
 *
-* @rss.php
-*  $Id$
-* $Author$
-* @package phpBB RSS
+* @package phpBB Easy Feed
+* @version $Id$
+* @author topdown
 * @copyright (c) 2009 topdown, Webmasters United.org
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
