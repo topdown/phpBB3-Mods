@@ -3,8 +3,8 @@
 *
 * @cms.php (CMS controler)
 *  $Id$
-* $Author$
-* @package - Simple BB CMS
+*  $Author$
+* @package - Simple_content
 * @copyright (c) 2009 topdown, Webmasters United.org
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
@@ -20,7 +20,7 @@ if (!defined('IN_PHPBB'))
 
 /**
 * CMS class
-* @package Simple BB CMS
+* @package Simple_content
 */
 
 class cms
