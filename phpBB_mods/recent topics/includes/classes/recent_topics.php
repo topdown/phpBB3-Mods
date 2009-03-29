@@ -2,7 +2,8 @@
 /**
 *
 * @package phpBB3 recent_topics Class
-* @version 0.0.1   $Id$
+*  $Id$
+* $Author$
 * @copyright (c) 2008 topdown, Webmasters United.org
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *

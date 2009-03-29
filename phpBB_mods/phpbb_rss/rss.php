@@ -2,7 +2,8 @@
 /**
 *
 * @rss_feed.php 
-* @version: $Id$
+*  $Id$
+* $Author$
 * @package - RSS output
 * @copyright (c) 2008 topdown, Webmasters United.org
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License

@@ -2,7 +2,8 @@
 /**
 *
 * @cms.php (CMS controler)
-* @version cms.php beta 0.0.5 $Id$
+*  $Id$
+* $Author$
 * @package - Simple BB CMS
 * @copyright (c) 2009 topdown, Webmasters United.org
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License

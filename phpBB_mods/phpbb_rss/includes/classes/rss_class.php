@@ -2,7 +2,8 @@
 /**
 *
 * @rss.php
-* @version 0.0.2 Beta $Id$
+*  $Id$
+* $Author$
 * @package phpBB RSS
 * @copyright (c) 2009 topdown, Webmasters United.org
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
