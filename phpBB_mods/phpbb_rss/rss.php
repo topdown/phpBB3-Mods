@@ -41,7 +41,7 @@ $my_rss->channel_desc 	= strip_tags($config['site_desc']);
 $my_rss->image_title 	= strip_tags($config['sitename'] . ' RSS Feed');
 $my_rss->image_link 	= $board_url . '/rss.php';
 $my_rss->image_url 		= $board_url . '/images/xml.png';
-$my_rss->image_width 	= '36';
+$my_rss->image_width 	= '36'; //can not exceed 144px
 $my_rss->image_height 	= '14';
 
 // Get the rss data include or exclude these forums (Global Announcements ignored)
