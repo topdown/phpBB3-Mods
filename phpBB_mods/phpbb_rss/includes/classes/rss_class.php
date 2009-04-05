@@ -76,13 +76,14 @@ class rss
 		$board_url = generate_board_url();
 	
 		$rss_value = '<?xml version="1.0" encoding="UTF-8"?>'."\r\n";
-		$rss_value .= '<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">' . "\r\n";
+		$rss_value .= '<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">' . "\r\n";
 		
 		// Build the channel tag
 		$rss_value .= "\t<channel>\r\n";
 		$rss_value .= "\t\t<title>" . $this->channel_title . "</title>\r\n";
 		$rss_value .= "\t\t<link>" . $this->channel_link . "</link>\r\n";
 		$rss_value .= "\t\t<description>" . $this->channel_desc . "</description>\r\n";
+		$rss_value .= "\t\t" . '<atom:link href="' . $this->channel_link . '" rel="self" type="application/rss+xml" />' . "\r\n";
 		$rss_value .= "\t\t<language>en-us</language>\r\n";
 		$rss_value .= "\t\t" . '<lastBuildDate>' . $this->format_date($build_date) . '</lastBuildDate>' ."\r\n";
 		$rss_value .= "\t\t" . '<copyright>This RSS script was developed by topdown - Webmasters United.org 2009</copyright>' . "\r\n";
