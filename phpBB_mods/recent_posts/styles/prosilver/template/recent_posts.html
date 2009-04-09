@@ -8,6 +8,8 @@
 		<!-- IF recent_data.S_TIME -->
 			<br />On: {recent_data.POST_TIME}</p>
 		<!-- ENDIF -->
-		<hr />
+		<!-- IF not recent_data.S_LAST_ROW -->
+			<hr />
+		<!-- ENDIF -->
 	<!-- END recent_data -->
 </div>
