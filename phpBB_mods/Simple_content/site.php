@@ -44,7 +44,7 @@ switch ($page)
     break;
     
     case 'about':
-        cms::get_cms('7', '4', true, true, 'ASC', 'About');
+        cms::get_cms('2', '1', true, true, 'ASC', 'About');
     break;
 
     case 'home':
