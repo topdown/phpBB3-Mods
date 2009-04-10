@@ -25,7 +25,6 @@ class recent_topics
 	/**
 	 * Get the recently posted topics ordered by last post time 
 	 * (if a reply ocoured, it jumps to the top of the list)
-	 * Just a little test
 	 * @return 
 	 * @param object $t_limit limit the number of topics
 	 * @param object $sql_in array to exclude forum ids from the query
@@ -36,13 +35,6 @@ class recent_topics
          * Set the needed globals
          */
 		global $phpbb_root_path, $phpEx, $db, $template, $auth, $user;
-		
-		/**
-		 * @var string
-		 * request vars for topic and forum ids
-		 */
-		$t_id = request_var('t', '');
-		$f_id = request_var('f', '');
 		
 		/**
 		 * Select all recent topics
@@ -56,10 +48,13 @@ class recent_topics
 		$result = $db->sql_query($sql);
 							
 		while ($recent_data = $db->sql_fetchrow($result))
-		{			
-			$t_id = $recent_data['topic_id'];
-			$f_id = $recent_data['forum_id'];
-		
+		{
+			/**
+			 * @var (Int)
+			 * request vars for topic and forum ids to keep them clean
+			 */
+			$t_id = request_var('t', $recent_data['topic_id']);
+			$f_id = request_var('f', $recent_data['forum_id']);
 			
 			 //Get permissions before display
 			if($auth->acl_get('f_read',$recent_data['forum_id']))
