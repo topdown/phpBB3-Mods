@@ -64,7 +64,7 @@ class recent_posts
 			//Get permissions before display
 			if($auth->acl_get('f_read',$recent_data['forum_id']))
 	        {
-				$template->assign_block_vars('recent_data', array(
+				$template->assign_block_vars('recent_postdata', array(
 					'POST_AUTHOR'		=> get_username_string('full', $recent_data['poster_id'], $user->data['username'], $user->data['user_colour']),
 					'S_AUTHOR'			=> $show_author,
 					'S_TIME'			=> $show_time,
