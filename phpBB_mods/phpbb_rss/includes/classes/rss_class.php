@@ -138,7 +138,7 @@ class rss
 				$rss_value .= "\t\t\t" . '<item>' ."\r\n";
 				$rss_value .= "\t\t\t\t<dc:creator>" . $row['username'] . "</dc:creator>\r\n";
 				$rss_value .= "\t\t\t\t" . '<pubDate>' . $this->format_date($row['post_time']) . '</pubDate>' ."\r\n";
-				$rss_value .= "\t\t\t\t" . '<title>' . $row['topic_title'] . '</title>' . "\r\n";
+				$rss_value .= "\t\t\t\t" . '<title>' . strip_tags($row['topic_title'], '') . '</title>' . "\r\n";
 				$rss_value .= "\t\t\t\t" . '<guid>' . $board_url . '/viewtopic.' . $phpEx . '?f=' . $f_id . '&amp;t=' . $t_id . '</guid>' . "\r\n";
 				$rss_value .= "\t\t\t\t" . '<link>' . $board_url . '/viewtopic.' . $phpEx . '?f=' . $f_id . '&amp;t=' . $t_id . '</link>' . "\r\n";
 				$rss_value .= "\t\t\t\t<description>" . $message . '&lt;br /&gt;&lt;br /&gt;Posted by: &lt;b&gt;'  . $row['username'] . '&lt;/b&gt;,  Replies: ' . $row['topic_replies'] . ', Views: ' . $row['topic_views'] .  "&lt;hr /&gt;</description>\r\n";
