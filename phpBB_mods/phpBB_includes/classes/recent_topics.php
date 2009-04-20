@@ -55,7 +55,10 @@ class recent_topics
 		$result = $db->sql_query($sql);
 							
 		while ($recent_data = $db->sql_fetchrow($result))
-		{			
+		{	
+			$t_id = $recent_data['topic_id'];
+			$f_id = $recent_data['forum_id'];
+					
 			 //Get permissions before display
 			if($auth->acl_get('f_read',$recent_data['forum_id']))
 	        {

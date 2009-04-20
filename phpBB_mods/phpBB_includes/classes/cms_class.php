@@ -54,7 +54,7 @@ class cms
 		$forum_id		= request_var('f', 0);
 		$topic_id		= request_var('t', 0);
 		$article		= request_var('#article_', 0);
-		$a_forum_id		= request_var('f', 0);
+
 		$mode			= request_var('mode', '');
 		$topic_id		= request_var('t', 0);
 		$post_id		= request_var('p', 0);
@@ -65,7 +65,8 @@ class cms
 		 */
 		$start	= request_var('start', 0);
 		$limit	= request_var('limit', (int) $limit);
-		$page 	= request_var('page', '');
+		//We need a default value here for the pagnition and article links
+		$page 	= request_var('page', 'home');
 		/**
 		 * @var string
 		 * return pagination URL
@@ -102,7 +103,7 @@ class cms
 				(($post_data['enable_smilies']) ? OPTION_FLAG_SMILIES : 0) + 
 				(($post_data['enable_magic_url']) ? OPTION_FLAG_LINKS : 0);
 							     					   			
-			//Who is the poster
+			//Need the poster_id
 			$poster_id = $post_data['poster_id'];
 		
 			// assign the database results to the block_vars loop

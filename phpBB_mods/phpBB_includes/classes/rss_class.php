@@ -123,6 +123,9 @@ class rss
 						
 		while ($row = $db->sql_fetchrow($result))
 		{
+			$t_id = $row['topic_id'];
+			$f_id = $row['forum_id'];
+			
 			//Set BBC and Smiley options
 			$row['bbcode_options'] = (($row['enable_bbcode']) ? OPTION_FLAG_BBCODE : 0) +
 				(($row['enable_smilies']) ? OPTION_FLAG_SMILIES : 0) + 
