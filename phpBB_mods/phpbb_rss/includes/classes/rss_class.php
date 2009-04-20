@@ -71,6 +71,10 @@ class rss
          */
 		global $phpbb_root_path, $phpEx, $db, $template, $auth, $user;
 		
+		//request the vars ti keep them clean
+		$t_id = request_var('t', 0);
+		$f_id = request_var('f', 0);
+		
 		// Get time, use current time
 		$build_date = mktime();
 		$board_url = generate_board_url();
@@ -118,10 +122,7 @@ class rss
 		$result = $db->sql_query_limit($sql, (int)$limit);	
 						
 		while ($row = $db->sql_fetchrow($result))
-		{			
-			$t_id = $row['topic_id'];
-			$f_id = $row['forum_id'];
-
+		{
 			//Set BBC and Smiley options
 			$row['bbcode_options'] = (($row['enable_bbcode']) ? OPTION_FLAG_BBCODE : 0) +
 				(($row['enable_smilies']) ? OPTION_FLAG_SMILIES : 0) + 

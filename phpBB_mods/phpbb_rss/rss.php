@@ -62,7 +62,7 @@ $order_by			= 'topic_last_post_time';
  * $limit the number of topics
  * @var (int)
  */
-$limit				= '10';
+$limit				= 10;
 $rss_data = $my_rss->get_rss($forum_array, $forum_array_type, $order_by, $limit);
 
 // Output the generated rss XML

@@ -35,6 +35,13 @@ class recent_topics
          * Set the needed globals
          */
 		global $phpbb_root_path, $phpEx, $db, $template, $auth, $user;
+
+		/**
+		* @var (Int)
+		* request vars for topic and forum ids to keep them clean
+		*/
+		$t_id = request_var('t', 0);
+		$f_id = request_var('f', 0);
 		
 		/**
 		 * Select all recent topics
@@ -48,14 +55,7 @@ class recent_topics
 		$result = $db->sql_query($sql);
 							
 		while ($recent_data = $db->sql_fetchrow($result))
-		{
-			/**
-			 * @var (Int)
-			 * request vars for topic and forum ids to keep them clean
-			 */
-			$t_id = request_var('t', $recent_data['topic_id']);
-			$f_id = request_var('f', $recent_data['forum_id']);
-			
+		{			
 			 //Get permissions before display
 			if($auth->acl_get('f_read',$recent_data['forum_id']))
 	        {

@@ -53,14 +53,19 @@ class cms
 		 */
 		$forum_id	= request_var('f', 0);
 		$topic_id	= request_var('t', 0);
-
+		$article	= request_var('#article_', 0);
+		$a_forum_id = request_var('f', 0);
+		$mode		= request_var('mode', '');
+		$topic_id 	= request_var('t', 0);
+		$post_id	= request_var('p', 0);
+		
 		/**
 		 * @var Starting and limiting pagnition for the Articles
 		 * @var $page is for dynamicly paged content
 		 */
 		$start	= request_var('start', 0);
 		$limit	= request_var('limit', (int) $limit);
-		$page 	= request_var('page', 'home');
+		$page 	= request_var('page', '');
 		/**
 		 * @var string
 		 * return pagination URL
@@ -92,7 +97,6 @@ class cms
 						
 		while ($post_data = $db->sql_fetchrow($result))
 		{
-			$poster_id = $post_data['poster_id'];
 			//Set BBC and Smiley options
 			$post_data['bbcode_options'] = (($post_data['enable_bbcode']) ? OPTION_FLAG_BBCODE : 0) +
 				(($post_data['enable_smilies']) ? OPTION_FLAG_SMILIES : 0) + 
@@ -100,14 +104,7 @@ class cms
 							     					   			
 			//Who is the poster
 			$poster_id = $post_data['poster_id'];
-			//A little url cleaning
-			$article	= request_var('#article_', '0');
-			$a_forum_id = request_var('f', $a_forum_id);
-			$mode		= request_var('mode', '');
-			$topic_id 	= request_var('t', $post_data['topic_id']);
-			$post_id	= request_var('p', $post_data['post_id']);
-			
-			
+		
 			// assign the database results to the block_vars loop
 			$template->assign_block_vars('post_data', array(
 				'POST_AUTHOR_FULL'	=> get_username_string('full', $poster_id, $post_data['username'], $post_data['user_colour'], $post_data['post_username']),

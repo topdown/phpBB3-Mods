@@ -36,7 +36,10 @@ class recent_posts
          * Set the needed globals
          */
 		global $phpbb_root_path, $phpEx, $db, $template, $auth, $user;
-	
+
+		// Request the var to keep it clean
+		$p_id = request_var('p', 0);
+		
 		/**
 		 * Select all recent posts
 		 */
@@ -48,10 +51,7 @@ class recent_posts
 		$result = $db->sql_query($sql);
 					
 		while ($recent_data = $db->sql_fetchrow($result))
-		{			
-			// Request the var to keep it clean
-			$p_id = request_var('p', $recent_data['post_id']);
-			
+		{
 			$message = $recent_data['post_subject'];
 			/**
 			 * $remove_re remove the Re: from titles
