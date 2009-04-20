@@ -51,13 +51,13 @@ class cms
 		 * @var string
 		 * request needed vars
 		 */
-		$forum_id	= request_var('f', 0);
-		$topic_id	= request_var('t', 0);
-		$article	= request_var('#article_', 0);
-		$a_forum_id = request_var('f', 0);
-		$mode		= request_var('mode', '');
-		$topic_id 	= request_var('t', 0);
-		$post_id	= request_var('p', 0);
+		$forum_id		= request_var('f', 0);
+		$topic_id		= request_var('t', 0);
+		$article		= request_var('#article_', 0);
+		$a_forum_id		= request_var('f', 0);
+		$mode			= request_var('mode', '');
+		$topic_id		= request_var('t', 0);
+		$post_id		= request_var('p', 0);
 		
 		/**
 		 * @var Starting and limiting pagnition for the Articles
