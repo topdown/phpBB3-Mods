@@ -3,7 +3,7 @@
 *
 * @author topdown webmastersunited.org
 * @package language page read permissions
-* @version 0.0.2 4.30.2009
+* @version $Id$
 * @copyright (c) 2009 Webmasters United.org
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
