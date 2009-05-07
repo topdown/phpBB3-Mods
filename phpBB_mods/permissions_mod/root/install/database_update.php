@@ -2,7 +2,7 @@
 /**
 *
 * @package install
-* @version $Id: database_update.php 9187 2008-12-12 14:47:03Z acydburn $
+* @version $Id$
 * @copyright (c) 2006 phpBB Group
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *

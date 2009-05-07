@@ -1,5 +1,5 @@
 #
-# $Id: mysql_40_schema.sql 9129 2008-11-27 13:44:24Z acydburn $
+# $Id$
 #
 
 # Table: 'phpbb_attachments'

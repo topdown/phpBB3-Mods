@@ -2,7 +2,7 @@
 /**
 *
 * @package install
-* @version $Id: install_install.php 9041 2008-11-02 11:19:12Z acydburn $
+* @version $Id$
 * @copyright (c) 2005 phpBB Group
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *

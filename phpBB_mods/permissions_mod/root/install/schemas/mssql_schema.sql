@@ -1,6 +1,6 @@
 /*
 
- $Id: mssql_schema.sql 9127 2008-11-26 19:58:35Z acydburn $
+ $Id$
 
 */
 

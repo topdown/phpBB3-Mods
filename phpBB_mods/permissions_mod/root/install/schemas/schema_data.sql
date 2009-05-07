@@ -1,5 +1,5 @@
 #
-# $Id: schema_data.sql 9187 2008-12-12 14:47:03Z acydburn $
+# $Id$
 #
 
 # POSTGRES BEGIN #

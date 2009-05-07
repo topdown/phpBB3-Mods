@@ -1,6 +1,6 @@
 /*
 
- $Id: postgres_schema.sql 9129 2008-11-27 13:44:24Z acydburn $
+ $Id$
 
 */
 

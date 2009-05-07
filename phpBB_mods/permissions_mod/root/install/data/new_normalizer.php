@@ -2,7 +2,7 @@
 /**
 *
 * @package install
-* @version $Id: new_normalizer.php 8479 2008-03-29 00:22:48Z naderman $
+* @version $Id$
 * @copyright (c) 2007 phpBB Group
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *

@@ -2,7 +2,7 @@
 /**
 *
 * @package install
-* @version $Id: convert_phpbb20.php 9155 2008-12-02 17:13:34Z acydburn $
+* @version $Id$
 * @copyright (c) 2006 phpBB Group
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *

@@ -2,7 +2,7 @@
 /**
 *
 * @package install
-* @version $Id: install_convert.php 8814 2008-09-04 12:01:47Z acydburn $
+* @version $Id$
 * @copyright (c) 2006 phpBB Group
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
