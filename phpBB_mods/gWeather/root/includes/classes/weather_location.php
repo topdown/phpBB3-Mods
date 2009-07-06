@@ -16,12 +16,12 @@ if (!defined('IN_PHPBB'))
 	exit;
 }
 
-include($phpbb_root_path . 'includes/classes/weather.' . $phpEx);
+include($phpbb_root_path . 'includes/classes/build_weather.' . $phpEx);
 
 /**
  * Output the weather for the current user
  */
-class weather_location extends weather {
+class weather_location extends build_weather {
    
    /**
     * We will allow the user to input a location, but it will be clean and must be valid
@@ -30,8 +30,6 @@ class weather_location extends weather {
 	public static function input_location()
 	{
 		global $user, $auth, $template, $phpbb_root_path, $phpEx;
-		
-		$user->add_lang('posting');
 		
 		$submit		= (!empty($_POST['submit'])) ? true : false;
 		$error 		= $data = array();
@@ -58,7 +56,7 @@ class weather_location extends weather {
 		 * This is where the action starts
 		 * @var $location string mixed
 		 */
-		weather::get_weather($location);
+		build_weather::get_weather($location);
 		add_form_key('weather');
 		
 			
@@ -116,7 +114,7 @@ class weather_location extends weather {
 			 * This is where the action starts
 			 * @var $location string mixed
 			 */			
-			weather::get_weather($location);
+			build_weather::get_weather($location);
 		}
 		// If not logged in, use the default or let them check their weather via URL
 		elseif ($user->data['user_id'] == ANONYMOUS && !$auth->acl_get('u_weather'))
@@ -135,7 +133,7 @@ class weather_location extends weather {
 			 * This is where the action starts
 			 * @var $location string mixed
 			 */
-			weather::get_weather($location);
+			build_weather::get_weather($location);
 		}
 		
 		return $location;
@@ -157,10 +155,12 @@ class weather_location extends weather {
 	 		*/
 			self::random_location();
 		}
+		$location = strip_tags($location, '');
+		
 		$search = array('%', ' ');
 		$replace = array('', ',');
-		$location = str_replace($search, $replace, $location, $count);
 		
+		$location = str_replace($search, $replace, $location, $count);	
 		
 		return $location;
 	}

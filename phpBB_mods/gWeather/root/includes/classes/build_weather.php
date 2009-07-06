@@ -21,7 +21,7 @@ include($phpbb_root_path . 'includes/classes/google_weather.' . $phpEx);
 /**
 * weather class extends google_weather class
 */
-class weather extends google_weather 
+class build_weather extends google_weather 
 {
 	public $day;
   

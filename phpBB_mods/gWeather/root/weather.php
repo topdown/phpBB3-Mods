@@ -20,11 +20,19 @@ include($phpbb_root_path . 'includes/functions_display.' . $phpEx);
 // Start session management
 $user->session_begin();
 $auth->acl($user->data);
-$user->setup('');
+$user->setup('mods/weather_mod');
 
 include($phpbb_root_path . 'includes/classes/weather_location.' . $phpEx);
+if($user->data['user_id'] != ANONYMOUS)
+{
+	weather_location::user_location();
+	$template->assign_vars(array('U_LOGGED_IN'	=> true));
+}
+else
+{
+	weather_location::input_location();
+}
 
-weather_location::input_location();
 
 // Output page
 page_header('Weather Testing');
