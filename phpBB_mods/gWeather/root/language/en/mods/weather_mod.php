@@ -1,7 +1,7 @@
 <?php
 /**
 * @package phpBB gWeather
-* @version $Id: weather_mod.php 57 2009-07-06 05:14:47Z phpbbxpert $
+* @version $Id$
 * @author topdown
 * @copyright (c) 2009 topdown, Webmasters United.org
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
