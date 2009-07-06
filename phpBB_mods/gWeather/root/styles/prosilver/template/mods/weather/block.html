@@ -1,0 +1,71 @@
+<div id="weather_block" style="width: 100%; margin: 0px;">
+<div class="panel bg1">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<div id="weather_head">	
+			<h3>Your Weather Conditions</h3>
+			<p style="margin-bottom: 0px;"><b>Location:</b> {CITY} <b style="padding-left: 30px;">Date:</b> {TIME}</p>
+		</div>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<div style="width: 130px; float: left; margin: 5px;">
+	<div class="forabg">
+		<div class="inner"><span class="corners-top"><span></span></span>
+			<ul class="topiclist">
+				<li class="header">
+					<dl class="icon">
+						<dt style="width: 100%; padding-right: 0px;">Current Conditions</dt>
+					</dl>
+				</li>
+			</ul>
+			<ul class="forums" style="list-style: none; padding:0px;">
+				<li class="row" style="border: none; padding: 5px;">
+					<dl class="icon" title="Your Current Weather is {CURRENT}">
+						<dd><b>{CURRENT}</b></dd>
+						<dd><img src="{ICON}" width="110px" alt="weather conditions" /></dd>
+						<dd>{TEMP_F}&deg;F</dd>
+						<dd>{TEMP_C}&deg;C</dd>
+						<dd>{WIND}</dd>
+						<dd>{HUMIDITY}</dd>
+					</dl>
+				</li>
+			</ul>
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+</div>
+
+<!-- BEGIN weather -->
+	<div style="width: 130px; float: left; margin: 5px;">
+		<div class="forabg">
+			<div class="inner"><span class="corners-top"><span></span></span>
+				<ul class="topiclist">
+					<li class="header">
+						<dl class="icon">
+							<dt style="width: 100%; padding-right: 0px;">{weather.DAY}</dt>
+						</dl>
+					</li>
+				</ul>
+				<ul class="forums" style="list-style: none; padding: 0px;">
+					<li class="row" style="border: none; padding: 5px;">
+						<dl class="icon" title="For {weather.DAY} expect it to be {weather.WEATHER}">
+							<dd><b>{weather.WEATHER}</b></dd>
+							<dd><img src="{weather.IMAGE}" width="110px" alt="weather conditions" /></dd>
+							<dd><b>High:</b> {weather.HIGH}&deg;F</dd>
+							<dd style="padding-bottom: 25px;"><b>Low:</b> {weather.LOW}&deg;F</dd>
+						</dl>
+					</li>
+				</ul>
+			<span class="corners-bottom"><span></span></span></div>
+		</div>
+	</div>
+<!-- END weather -->
+
+<div class="clear"></div>
+
+<p style="margin: 0px 0px 0px 20px; font-weight: bold; padding: 0px; width: 300px; float: left;">{COPY}</p>
+<p style="float: left; width: 160px;">Weather Via: Google</p>
+
+<div class="clear"></div>
+
+</div>
+
