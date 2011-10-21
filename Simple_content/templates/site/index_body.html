@@ -1,0 +1,55 @@
+<!-- version $Id$ -->
+<!-- INCLUDE overall_header.html -->
+
+<h2>{CMS_TITLE}</h2>
+
+<!-- IF S_NAVIGATION -->
+<div class="panel bg3" style="margin: 0px 0px 10px 0px;">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<h4 style="margin:0px;">{L_ARTICLE_NAV}</h4>
+		<ul  class="linklist" style="list-style: none; text-align:left; margin: 0px 10px; font-weight: bold;">
+			<!-- BEGIN post_data -->
+			<li style="padding: 2px 10px;"><a href="{post_data.ARTICLE_LINK}">{post_data.POST_TITLE}</a></li>
+			<!-- END post_data -->	
+		</ul>
+       
+    <span class="corners-bottom"><span></span></span>
+    </div>
+</div>	
+<!-- ENDIF -->
+   	
+<div class="panel bg3" style="margin: 0px 0px 10px 0px;">
+	<div class="inner"><span class="corners-top"><span></span></span>	
+<ul class="linklist">
+    <li class="rightside pagination">{TOTAL_ARTICLES}  {L_ARTICLES} &bull; <!-- IF PAGINATION --><a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE -->{PAGE_NUMBER}<!-- ENDIF --></li>
+</ul>
+<span class="corners-bottom"><span></span></span>
+    </div>
+</div>
+
+<!-- BEGIN post_data -->
+<div class="panel bg2" style="margin: 0px 0px 10px 0px;"  id="article_{post_data.ARTICLE_ID}">
+	<div class="inner"><span class="corners-top"><span></span></span>		
+		<div class="postbody" style="width: 100%;">
+			<h1 style="color:#333; width: 300px; font-size: 1.6em; margin: 0px 0px;"><a href="{post_data.ARTICLE_URL}">{post_data.POST_TITLE}</a></h1>
+			<p class="author" style="width: 300px; ">Posted {L_POST_BY_AUTHOR} <strong> {post_data.POST_AUTHOR_FULL}</strong> &raquo; {post_data.POST_DATE}</p>
+			<!-- IF not S_IS_BOT-->
+				<!-- IF U_ACP -->
+					<ul class="profile-icons" style="margin: -35px 0px 0px 0px; float: right;">
+						<li class="edit-icon"><a href="{post_data.U_EDIT}" title="{L_EDIT_POST}"><span>{L_EDIT_POST}</span></a></li>
+						<li class="delete-icon"><a href="{post_data.U_DELETE}" title="{L_DELETE_POST}"><span>{L_DELETE_POST}</span></a></li>
+					</ul>
+				<!-- ENDIF -->
+			<!-- ENDIF -->
+			<div class="content" style="clear:both;">{post_data.POST_TEXT}</div>
+
+		</div>
+        <!-- IF S_COMMENTS -->
+			<div style="float: left; width: 80%; margin: 0px; padding: 10px 10px; font-weight: bold;"><a href="{post_data.U_COMMENTS}" title="{L_COMMENTS}">{L_COMMENTS}</a> &nbsp;&nbsp; <span>Total Comments &bull; {post_data.TOTAL_COMMENTS}</span></div>
+		<!-- ENDIF -->
+		<div class="back2top" style="clear: none; float: right; margin: 0px; padding: 10px 0px; width: 50px;"><a href="#wrap" class="top" title="Top">Top</a></div>
+	<span class="corners-bottom"><span></span></span>
+    </div>
+</div>
+<!-- END post_data -->
+<!-- INCLUDE overall_footer.html -->

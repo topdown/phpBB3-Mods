@@ -1,0 +1,15 @@
+<!-- version $Id$ -->
+<div id="recent_posts">
+	<!-- BEGIN recent_postdata -->
+		<p><a href="{recent_postdata.U_RECENT_POST}" title="{recent_postdata.POST_TITLE}">{recent_postdata.POST_TITLE}</a>
+		<!-- IF recent_postdata.S_AUTHOR -->
+			<br />Posted By: {recent_postdata.POST_AUTHOR}
+		<!-- ENDIF -->
+		<!-- IF recent_postdata.S_TIME -->
+			<br />On: {recent_postdata.POST_TIME}</p>
+		<!-- ENDIF -->
+		<!-- IF not recent_postdata.S_LAST_ROW -->
+			<hr />
+		<!-- ENDIF -->
+	<!-- END recent_postdata -->
+</div>

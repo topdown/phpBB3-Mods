@@ -1,0 +1,14 @@
+<!-- version $Id$ -->
+<div id="recent_posts">
+	<ul style="list-style: none; text-align:left; margin: 0px 0px 5px 0px; padding: 0px 5px;">
+		<!-- BEGIN recent_postdata -->
+			<li style="<!-- IF not recent_postdata.S_LAST_ROW -->border-bottom: 1px solid #222; <!-- ENDIF -->margin: 5px 0px;"><a href="{recent_postdata.U_RECENT_POST}" title="{recent_postdata.POST_TITLE}">{recent_postdata.POST_TITLE}</a>
+			<!-- IF recent_postdata.S_AUTHOR -->
+				<br />By: {recent_postdata.POST_AUTHOR}
+			<!-- ENDIF -->
+			<!-- IF recent_postdata.S_TIME -->
+				<br />{recent_postdata.POST_TIME}</li>
+			<!-- ENDIF -->
+		<!-- END recent_postdata -->
+	</ul>
+</div>
