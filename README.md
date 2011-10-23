@@ -9,3 +9,5 @@ They will be added here as well when I get the time.
 ***To download the mods separately, use the branches.***
 
 Each mod has its own branch.
+
+NOTE: The RSS Mod is depreciated since phpBB3 now has RSS built in.
